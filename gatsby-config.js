@@ -5,10 +5,14 @@ module.exports = {
     siteName: 'Femmico',
   },
   plugins: [
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-mdx',
     'gatsby-plugin-sass',
+    'gatsby-plugin-less',
     'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-source-datocms`,
+      resolve: 'gatsby-source-datocms',
       options: { apiToken: process.env.DATO_API_TOKEN },
     },
     {
