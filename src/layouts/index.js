@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import {
-  Button,
   Container,
   Icon,
   Menu,
@@ -46,11 +45,15 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em', backgroundImage: `url("/images/homepage-heading.jpg")`,
-              backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
-              backgroundPosition: 'center right', backgroundColor: '#C4E5F6'
-          }}
-
+            style={{ 
+              minHeight: 700, 
+              padding: '1em 0em',
+              backgroundImage: `url("/images/homepage-heading.jpg")`,
+              backgroundRepeat: 'no-repeat', 
+              backgroundSize: 'contain',
+              backgroundPosition: 'center right', 
+              backgroundColor: '#C4E5F6'
+            }}
             vertical
           >
             <Menu
@@ -63,17 +66,10 @@ class DesktopContainer extends Component {
                 <Menu.Item as='a' active>
                   Femmico
                 </Menu.Item>
-                {/* <Menu.Item as='a'>Work</Menu.Item>
-                <Menu.Item as='a'>Company</Menu.Item>
-                <Menu.Item as='a'>Careers</Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed}>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item> */}
+                <Menu.Item position='right' inverted className="snipcart-summary snipcart-checkout">
+                  <Icon name='shopping cart' />
+                  <span className="snipcart-total-items"></span>
+                </Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading />
@@ -118,31 +114,36 @@ class MobileContainer extends Component {
           <Menu.Item as='a' active>
             Femmico
           </Menu.Item>
-          <Menu.Item as='a'>Work</Menu.Item>
-          <Menu.Item as='a'>Company</Menu.Item>
-          <Menu.Item as='a'>Log in</Menu.Item>
-          <Menu.Item as='a'>Sign Up</Menu.Item>
+          <Menu.Item position='right' className="snipcart-summary snipcart-checkout">
+            <Icon name='shopping cart' />
+            My Shopping Cart
+            <span className="snipcart-total-items"></span>
+          </Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
           <Segment
             inverted
             textAlign='center'
-            style={{ minHeight: 350, padding: '1em 0em' }}
+            style={{
+              minHeight: 250, padding: '1em 0em',
+              backgroundImage: `url("/images/homepage-heading.jpg")`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center right',
+              backgroundColor: '#C4E5F6' 
+            }}
             vertical
           >
             <Container>
-              <Menu inverted pointing secondary size='large'>
+              <Menu pointing secondary size='large'>
                 <Menu.Item onClick={this.handleToggle}>
                   <Icon name='sidebar' />
                 </Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
+                <Menu.Item position='right' className="snipcart-summary snipcart-checkout">
+                  <Icon name='shopping cart' />
+
+                  <span className="snipcart-total-items"></span>
                 </Menu.Item>
               </Menu>
             </Container>
@@ -160,10 +161,10 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const ResponsiveContainer = ({ children }) => (
+const ResponsiveContainer = ({ children, ...props }) => (
   <div>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
+    <DesktopContainer {...props}>{children}</DesktopContainer>
+    <MobileContainer {...props}>{children}</MobileContainer>
   </div>
 )
 
@@ -171,8 +172,8 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const HomepageLayout = ({ children }) => (
-  <ResponsiveContainer>
+const HomepageLayout = ({ children, ...props }) => (
+  <ResponsiveContainer {...props}>
     {children}
 
     <Footer />
@@ -180,56 +181,3 @@ const HomepageLayout = ({ children }) => (
 )
 
 export default HomepageLayout
-
-// import React from 'react'
-// import PropTypes from 'prop-types'
-// import Helmet from 'react-helmet'
-// import Link from 'gatsby-link'
-
-// import '../style/index.scss'
-
-// const Layout = ({ children, site }) => (
-//   <div>
-//     <Helmet title="Snipcart + DatoCMS + GatsbyJS Example" />
-//     <div className="Container">
-//       <div className="Header">
-//         <div className="Wrap" >
-//           <div className="Header__body">
-//             <h1 className="Header__title">
-//               <Link data-text={site.siteMetadata.siteName} to="/">
-//                 {site.siteMetadata.siteName}
-//               </Link>
-//             </h1>
-//             <div className="Header__summary snipcart-summary snipcart-checkout">
-//               <div className="Header__summary__title">
-//                 🛍 MY CART 🛍
-//               </div>
-//               <div className="Header__summary__line">
-//                 Number of items: <span className="snipcart-total-items"></span>
-//               </div>
-//               <div className="Header__summary__line">
-//                 Total price: <span className="snipcart-total-price"></span>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//       <div className="Wrap" >
-//         {children}
-//       </div>
-//       <div className="Wrap" >
-//         <div className="Footer">
-//           This website is just an example project to demonstrate how you can 
-//           integrate <a href="https://www.gatsbyjs.org/">Gatsby</a>, <a href="https://snipcart.com/">Snipcart</a> and <a href="https://www.datocms.com">DatoCMS</a>.
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// )
-
-// Layout.propTypes = {
-//   children: PropTypes.func,
-// }
-
-// export default Layout
-
