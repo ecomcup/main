@@ -37,7 +37,8 @@ class DesktopContainer extends Component {
 
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
-        <Visibility
+        <h1>Coming soon</h1>
+        {/* <Visibility
           once={false}
           onBottomPassed={this.showFixedMenu}
           onBottomPassedReverse={this.hideFixedMenu}
@@ -76,7 +77,7 @@ class DesktopContainer extends Component {
           </Segment>
         </Visibility>
 
-        {children}
+        {children} */}
       </Responsive>
     )
   }
