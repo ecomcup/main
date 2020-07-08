@@ -1,7 +1,5 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import Layout from "../layouts/index";
-import Img from "gatsby-image";
 import {
   Button,
   Container,
@@ -10,31 +8,16 @@ import {
   Header,
   Image,
   Segment,
-  Card,
+  Icon,
 } from "semantic-ui-react";
-import { useMediaQuery } from "react-responsive";
+import Layout from "../layouts/index";
+import Products from "@components/Products";
 
 export default () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
   return (
     <StaticQuery
       query={graphql`
-        query CatalogueQuery {
-          products: allDatoCmsProduct(limit: 6) {
-            edges {
-              node {
-                id
-                name
-                price
-                image {
-                  url
-                  sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
-                    ...GatsbyDatoCmsSizes
-                  }
-                }
-              }
-            }
-          }
+        query {
           site {
             siteMetadata {
               siteName
@@ -44,45 +27,92 @@ export default () => {
       `}
       render={(data) => (
         <Layout site={data.site}>
-          <Segment style={{ padding: "8em 0em" }} vertical>
-            <Grid container stackable verticalAlign="middle">
-              <Grid.Row>
-                <Grid.Column width={8}>
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    Easy to use
-                  </Header>
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    Eco-friendly product
-                  </Header>
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    Product Made in Finland
-                  </Header>
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    No chemicals, BPA or latex
-                  </Header>
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    Made of medical grade silicone
-                  </Header>
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    Use up to 12 hours & empty 2-4 times/day
-                  </Header>
-                </Grid.Column>
-                <Grid.Column floated="right" width={6}>
-                  <Image
-                    bordered
-                    rounded
-                    size="large"
-                    src="/images/instructions.webp"
-                  />
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row>
-                <Grid.Column textAlign="center">
-                  <Button size="huge">Check Them Out</Button>
-                </Grid.Column>
-              </Grid.Row>
+          <Segment style={{ padding: "4em 0em" }} vertical>
+            <Grid container relaxed columns={4}>
+              <Grid.Column>
+                <Header as="h1" icon>
+                  <Icon name="settings" />
+                  Easy to use
+                  <Header.Subheader>
+                    Manage your account settings and set e-mail preferences.
+                  </Header.Subheader>
+                </Header>
+              </Grid.Column>
+              <Grid.Column>
+                <Header as="h1" icon>
+                  <Icon name="settings" />
+                  No chemicals, BPA or latex
+                  <Header.Subheader>
+                    Manage your account settings and set e-mail preferences.
+                  </Header.Subheader>
+                </Header>
+              </Grid.Column>
+              <Grid.Column>
+                <Header as="h1" icon>
+                  <Icon name="settings" />
+                  Made of medical grade silicone
+                  <Header.Subheader>
+                    Manage your account settings and set e-mail preferences.
+                  </Header.Subheader>
+                </Header>
+              </Grid.Column>
+              <Grid.Column>
+                <Header as="h1" icon>
+                  <Icon name="settings" />
+                  Use up to 12 hours & empty 2-4 times/day
+                  <Header.Subheader>
+                    Manage your account settings and set e-mail preferences.
+                  </Header.Subheader>
+                </Header>
+              </Grid.Column>
             </Grid>
           </Segment>
+
+          <Segment style={{ padding: "8em 0em" }} vertical>
+            <Container text>
+              <Header as="h3" style={{ fontSize: "2em" }}>
+                About a Menstrual Cup
+              </Header>
+              <p style={{ fontSize: "1.33em" }}>
+                Menstrual cup provides you a comfortable, odorless period for up
+                to 12 hours a day. Completely reusable & your cup will last
+                several years, making it better for the environment.
+              </p>
+              <p style={{ fontSize: "1.33em" }}>
+                Lunette menstrual cup registered with FDA and TGA. Winner of the
+                vigorous Danish chemical safety test. Eco-friendly from
+                production to 100% biodegrable packaging, made in Finland.
+              </p>
+              <p style={{ fontSize: "1.33em" }}>
+                We’re Lunette offical e-retailer & ready to help you understand
+                more about the cup. If you have any question or concern on how
+                to use it or it’s safety please feel free to contact us. We’re
+                happy to help 🙂
+              </p>
+
+              <Header as="h3" style={{ fontSize: "2em" }}>
+                Why Lunette
+              </Header>
+              <p style={{ fontSize: "1.33em" }}>
+                Instead of focusing on content creation and hard work, we have
+                learned how to master the art of doing nothing by providing
+                massive amounts of whitespace and generic content that can seem
+                massive, monolithic and worth your attention.
+              </p>
+              <Button as="a" size="large">
+                Read More
+              </Button>
+            </Container>
+          </Segment>
+
+          <Divider
+            as="h4"
+            className="header"
+            horizontal
+            style={{ margin: "3em 0em", textTransform: "uppercase" }}
+          >
+            Case Studies
+          </Divider>
 
           <Segment style={{ padding: "0em" }} vertical>
             <Grid celled="internally" columns="equal" stackable>
@@ -112,85 +142,25 @@ export default () => {
             </Grid>
           </Segment>
 
-          <Segment style={{ padding: "8em 0em" }} vertical>
-            <Container text>
-              <Header as="h3" style={{ fontSize: "2em" }}>
-                Breaking The Grid, Grabs Your Attention
-              </Header>
-              <p style={{ fontSize: "1.33em" }}>
-                Instead of focusing on content creation and hard work, we have
-                learned how to master the art of doing nothing by providing
-                massive amounts of whitespace and generic content that can seem
-                massive, monolithic and worth your attention.
-              </p>
-              <Button as="a" size="large">
-                Read More
-              </Button>
+          <Products />
 
-              <Divider
-                as="h4"
-                className="header"
-                horizontal
-                style={{ margin: "3em 0em", textTransform: "uppercase" }}
-              >
-                Case Studies
-              </Divider>
-
-              <Header as="h3" style={{ fontSize: "2em" }}>
-                About a Menstrual Cup
-              </Header>
-              <p style={{ fontSize: "1.33em" }}>
-                Menstrual cup provides you a comfortable, odorless period for up
-                to 12 hours a day. Completely reusable & your cup will last
-                several years, making it better for the environment.
-              </p>
-              <p style={{ fontSize: "1.33em" }}>
-                Lunette menstrual cup registered with FDA and TGA. Winner of the
-                vigorous Danish chemical safety test. Eco-friendly from
-                production to 100% biodegrable packaging, made in Finland.
-              </p>
-              <p style={{ fontSize: "1.33em" }}>
-                We’re Lunette offical e-retailer & ready to help you understand
-                more about the cup. If you have any question or concern on how
-                to use it or it’s safety please feel free to contact us. We’re
-                happy to help 🙂
-              </p>
-              <Button as="a" size="large">
-                I'm Still Quite Interested
-              </Button>
-            </Container>
-          </Segment>
-
-          <Segment vertical>
+          <Segment container>
             <Container>
-              <Card.Group itemsPerRow={isMobile ? 1 : 6}>
-                {data.products.edges.map(({ node: product }) => (
-                  <Card
-                    key={product.id}
-                    className="Product snipcart-add-item"
-                    data-item-id={product.id}
-                    data-item-price={product.price}
-                    data-item-image={product.image.url}
-                    data-item-name={product.name}
-                    data-item-url={`/`}
-                  >
-                    <Img sizes={product.image.sizes} />
-                    <Card.Content>
-                      <Card.Header>{product.name}</Card.Header>
-                      <Card.Description>{product.price}€</Card.Description>
-                    </Card.Content>
-                    <Card.Content extra>
-                      <div className="ui two buttons">
-                        <Button basic color="green" className="Product__buy">
-                          Buy now
-                        </Button>
-                      </div>
-                    </Card.Content>
-                  </Card>
-                ))}
-              </Card.Group>
+              <Header as="h3" style={{ fontSize: "2em" }}>
+                How to use
+              </Header>
+              <Image bordered rounded size="large" src="/images/cup-size.webp" />
+              <Image bordered rounded size="large" src="/images/cup-model.jpg" />
+              <Image
+                bordered
+                rounded
+                size="large"
+                src="/images/instructions.webp"
+              />
             </Container>
           </Segment>
+
+          <Products />
         </Layout>
       )}
     />
