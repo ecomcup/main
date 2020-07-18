@@ -93,15 +93,69 @@ export default () => {
               <Header as="h3" style={{ fontSize: "2em" }}>
                 Why Lunette
               </Header>
-              <p style={{ fontSize: "1.33em" }}>
-                Instead of focusing on content creation and hard work, we have
-                learned how to master the art of doing nothing by providing
-                massive amounts of whitespace and generic content that can seem
-                massive, monolithic and worth your attention.
-              </p>
               <Button as="a" size="large">
                 Read More
               </Button>
+            </Container>
+          </Segment>
+
+          <Segment vertical>
+            <Grid container relaxed columns={3}>
+              <Grid.Column>
+                <Header as="h1" icon>
+                  <Icon name="settings" />
+                  Easy to use
+                  <Header.Subheader>
+                    Manage your account settings and set e-mail preferences.
+                  </Header.Subheader>
+                </Header>
+              </Grid.Column>
+              <Grid.Column>
+                <Header as="h1" icon>
+                  <Icon name="settings" />
+                  No chemicals, BPA or latex
+                  <Header.Subheader>
+                    Manage your account settings and set e-mail preferences.
+                  </Header.Subheader>
+                </Header>
+              </Grid.Column>
+              <Grid.Column>
+                <Header as="h1" icon>
+                  <Icon name="settings" />
+                  Made of medical grade silicone
+                  <Header.Subheader>
+                    Manage your account settings and set e-mail preferences.
+                  </Header.Subheader>
+                </Header>
+              </Grid.Column>
+            </Grid>
+          </Segment>
+
+          <Products />
+
+          <Segment container>
+            <Container>
+              <Header as="h3" style={{ fontSize: "2em" }}>
+                How to use
+              </Header>
+              <Image
+                bordered
+                rounded
+                size="large"
+                src="/images/cup-size.webp"
+              />
+              <Image
+                bordered
+                rounded
+                size="large"
+                src="/images/cup-model.jpg"
+              />
+              <Image
+                bordered
+                rounded
+                size="large"
+                src="/images/instructions.webp"
+              />
             </Container>
           </Segment>
 
@@ -140,24 +194,6 @@ export default () => {
                 </Grid.Column>
               </Grid.Row>
             </Grid>
-          </Segment>
-
-          <Products />
-
-          <Segment container>
-            <Container>
-              <Header as="h3" style={{ fontSize: "2em" }}>
-                How to use
-              </Header>
-              <Image bordered rounded size="large" src="/images/cup-size.webp" />
-              <Image bordered rounded size="large" src="/images/cup-model.jpg" />
-              <Image
-                bordered
-                rounded
-                size="large"
-                src="/images/instructions.webp"
-              />
-            </Container>
           </Segment>
 
           <Products />

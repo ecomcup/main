@@ -16,7 +16,12 @@ export default function Products() {
     <StaticQuery
       query={graphql`
         query CatalogueQuery {
-          products: allDatoCmsProduct(limit: 6) {
+          products: allDatoCmsProduct(
+            limit: 6
+            filter: {
+              collections: { elemMatch: { label: { eq: "Main Page" } } }
+            }
+          ) {
             edges {
               node {
                 id
