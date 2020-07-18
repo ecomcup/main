@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, Link, graphql } from "gatsby";
 import {
   Button,
   Container,
@@ -11,7 +11,8 @@ import {
   Icon,
 } from "semantic-ui-react";
 import Layout from "../layouts/index";
-import Products from "@components/Products";
+import MainProducts from "@components/MainProducts";
+import BrandHeader from "@components/BrandHeader";
 
 export default () => {
   return (
@@ -27,8 +28,10 @@ export default () => {
       `}
       render={(data) => (
         <Layout site={data.site}>
+          <BrandHeader />
+
           <Segment style={{ padding: "4em 0em" }} vertical>
-            <Grid container relaxed columns={4}>
+            <Grid container stackable columns={4}>
               <Grid.Column>
                 <Header as="h1" icon>
                   <Icon name="settings" />
@@ -87,7 +90,10 @@ export default () => {
                 We’re Lunette offical e-retailer & ready to help you understand
                 more about the cup. If you have any question or concern on how
                 to use it or it’s safety please feel free to contact us. We’re
-                happy to help 🙂
+                happy to help{" "}
+                <span role="img" aria-label="sheep">
+                  🙂
+                </span>
               </p>
 
               <Header as="h3" style={{ fontSize: "2em" }}>
@@ -100,38 +106,33 @@ export default () => {
           </Segment>
 
           <Segment vertical>
-            <Grid container relaxed columns={3}>
+            <Grid container stackable relaxed columns={3}>
               <Grid.Column>
-                <Header as="h1" icon>
-                  <Icon name="settings" />
-                  Easy to use
-                  <Header.Subheader>
-                    Manage your account settings and set e-mail preferences.
-                  </Header.Subheader>
-                </Header>
+                <Link to="/cup-brand">
+                  <Image src="https://via.placeholder.com/350x250" />
+                  <Header as="h1">About the brand</Header>
+                </Link>
               </Grid.Column>
               <Grid.Column>
-                <Header as="h1" icon>
-                  <Icon name="settings" />
-                  No chemicals, BPA or latex
-                  <Header.Subheader>
-                    Manage your account settings and set e-mail preferences.
-                  </Header.Subheader>
-                </Header>
+                <Link to="/cup-info">
+                  <Image src="https://via.placeholder.com/350x250" />
+                  <Header as="h1" icon>
+                    Cup info
+                  </Header>
+                </Link>
               </Grid.Column>
               <Grid.Column>
-                <Header as="h1" icon>
-                  <Icon name="settings" />
-                  Made of medical grade silicone
-                  <Header.Subheader>
-                    Manage your account settings and set e-mail preferences.
-                  </Header.Subheader>
-                </Header>
+                <Link to="/cup-guide">
+                  <Image src="https://via.placeholder.com/350x250" />
+                  <Header as="h1" icon>
+                    User guide
+                  </Header>
+                </Link>
               </Grid.Column>
             </Grid>
           </Segment>
 
-          <Products />
+          <MainProducts />
 
           <Segment container>
             <Container>
@@ -196,7 +197,7 @@ export default () => {
             </Grid>
           </Segment>
 
-          <Products />
+          <MainProducts />
         </Layout>
       )}
     />

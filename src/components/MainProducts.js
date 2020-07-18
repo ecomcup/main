@@ -8,14 +8,19 @@ import {
 import { useMediaQuery } from "react-responsive";
 import Product from "@components/Product";
 
-export default function Products() {
+export default function MainProducts() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
     <StaticQuery
       query={graphql`
-        query CatalogueQuery {
-          products: allDatoCmsProduct {
+        query MainProductsQuery {
+          products: allDatoCmsProduct(
+            limit: 6
+            filter: {
+              collections: { elemMatch: { label: { eq: "Main Page" } } }
+            }
+          ) {
             edges {
               node {
                 id
@@ -35,7 +40,6 @@ export default function Products() {
       render={(data) => (
         <Segment vertical>
           <Container>
-            <h1>All products</h1>
             <Card.Group itemsPerRow={isMobile ? 1 : 6}>
               {data.products.edges.map(({ node: product }) => (
                 <Product product={product} />

@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { navigate } from '@reach/router'
 import {
   Container,
   Icon,
   Menu,
   Responsive,
-  Segment,
   Sidebar,
   Visibility,
 } from 'semantic-ui-react'
 import Footer from '@components/Footer'
-import HomepageHeading from '@components/HomepageHeading'
 
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
@@ -26,14 +25,15 @@ const getWidth = () => {
  * It can be more complicated, but you can create really flexible markup.
  */
 class DesktopContainer extends Component {
-  state = {}
+  state = {};
 
-  hideFixedMenu = () => this.setState({ fixed: false })
-  showFixedMenu = () => this.setState({ fixed: true })
+  hideFixedMenu = () => this.setState({ fixed: false });
+  showFixedMenu = () => this.setState({ fixed: true });
+  handleItemClick = (e, { name }) => navigate(name);
 
   render() {
-    const { children } = this.props
-    const { fixed } = this.state
+    const { children } = this.props;
+    const { fixed } = this.state;
 
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
@@ -42,43 +42,34 @@ class DesktopContainer extends Component {
           onBottomPassed={this.showFixedMenu}
           onBottomPassedReverse={this.hideFixedMenu}
         >
-          <Segment
-            inverted
-            textAlign='center'
-            style={{ 
-              minHeight: 700, 
-              padding: '1em 0em',
-              backgroundImage: `url("/images/homepage-heading.jpg")`,
-              backgroundRepeat: 'no-repeat', 
-              backgroundSize: 'contain',
-              backgroundPosition: 'center right', 
-              backgroundColor: '#C4E5F6'
-            }}
-            vertical
+          <Menu
+            fixed={fixed ? "top" : null}
+            pointing={!fixed}
+            secondary={!fixed}
+            size="large"
           >
-            <Menu
-              fixed={fixed ? 'top' : null}
-              pointing={!fixed}
-              secondary={!fixed}
-              size='large'
-            >
-              <Container>
-                <Menu.Item as='a' active>
-                  Femmico
-                </Menu.Item>
-                <Menu.Item position='right' inverted className="snipcart-summary snipcart-checkout">
-                  <Icon name='shopping cart' />
-                  <span className="snipcart-total-items"></span>
-                </Menu.Item>
-              </Container>
-            </Menu>
-            <HomepageHeading />
-          </Segment>
+            <Container>
+              <Menu.Item as="a" name="/" onClick={this.handleItemClick} active>
+                Femmico
+              </Menu.Item>
+              <Menu.Item as="b" name="/products" onClick={this.handleItemClick}>
+                Products
+              </Menu.Item>
+              <Menu.Item
+                position="right"
+                inverted
+                className="snipcart-summary snipcart-checkout"
+              >
+                <Icon name="shopping cart" />
+                <span className="snipcart-total-items"></span>
+              </Menu.Item>
+            </Container>
+          </Menu>
         </Visibility>
 
         {children}
       </Responsive>
-    )
+    );
   }
 }
 
@@ -105,55 +96,47 @@ class MobileContainer extends Component {
       >
         <Sidebar
           as={Menu}
-          animation='push'
+          animation="push"
           inverted
           onHide={this.handleSidebarHide}
           vertical
           visible={sidebarOpened}
         >
-          <Menu.Item as='a' active>
+          <Menu.Item as="a" active>
             Femmico
           </Menu.Item>
-          <Menu.Item position='right' className="snipcart-summary snipcart-checkout">
-            <Icon name='shopping cart' />
+          <Menu.Item as="b">Products</Menu.Item>
+          <Menu.Item
+            position="right"
+            className="snipcart-summary snipcart-checkout"
+          >
+            <Icon name="shopping cart" />
             My Shopping Cart
             <span className="snipcart-total-items"></span>
           </Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
-          <Segment
-            inverted
-            textAlign='center'
-            style={{
-              minHeight: 250, padding: '1em 0em',
-              backgroundImage: `url("/images/homepage-heading.jpg")`,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center right',
-              backgroundColor: '#C4E5F6' 
-            }}
-            vertical
-          >
-            <Container>
-              <Menu pointing secondary size='large'>
-                <Menu.Item onClick={this.handleToggle}>
-                  <Icon name='sidebar' />
-                </Menu.Item>
-                <Menu.Item position='right' className="snipcart-summary snipcart-checkout">
-                  <Icon name='shopping cart' />
+          <Container>
+            <Menu pointing secondary size="large">
+              <Menu.Item onClick={this.handleToggle}>
+                <Icon name="sidebar" />
+              </Menu.Item>
+              <Menu.Item
+                position="right"
+                className="snipcart-summary snipcart-checkout"
+              >
+                <Icon name="shopping cart" />
 
-                  <span className="snipcart-total-items"></span>
-                </Menu.Item>
-              </Menu>
-            </Container>
-            <HomepageHeading mobile />
-          </Segment>
+                <span className="snipcart-total-items"></span>
+              </Menu.Item>
+            </Menu>
+          </Container>
 
           {children}
         </Sidebar.Pusher>
       </Responsive>
-    )
+    );
   }
 }
 
