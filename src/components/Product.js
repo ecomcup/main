@@ -19,6 +19,7 @@ export default function Product({ product }) {
       <Img sizes={product.image.sizes} />
       <Card.Content>
         <Card.Header>{product.name}</Card.Header>
+        {product.originalPrice && <Card.Description style={{ textDecoration: 'line-through', color: 'lightgrey' }}>MYR {product.originalPrice}</Card.Description>}
         <Card.Description>MYR {product.price}</Card.Description>
       </Card.Content>
       <Card.Content extra>

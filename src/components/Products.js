@@ -21,6 +21,7 @@ export default function Products() {
                 id
                 name
                 price
+                originalPrice
                 image {
                   url
                   sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
