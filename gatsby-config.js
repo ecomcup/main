@@ -7,7 +7,7 @@ module.exports = {
   plugins: [
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    // 'gatsby-plugin-mdx',
+    'gatsby-plugin-mdx',
     "gatsby-plugin-sass",
     "gatsby-plugin-less",
     "gatsby-plugin-react-helmet",
