@@ -7,7 +7,21 @@ module.exports = {
   plugins: [
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    'gatsby-plugin-mdx',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/layouts/index.js"),
+        },
+      },
+    },
     "gatsby-plugin-sass",
     "gatsby-plugin-less",
     "gatsby-plugin-react-helmet",

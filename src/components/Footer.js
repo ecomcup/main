@@ -24,7 +24,9 @@ export default function Footer () {
                 <List.Item as="a">
                   <Link to="/shipping">Shipping</Link>
                 </List.Item>
-                <List.Item as="a">Gazebo Plans</List.Item>
+                <List.Item as="a">
+                  <Link to="/privacy-policy">Privacy Policy</Link>
+                </List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={3}>
