@@ -78,15 +78,16 @@ DesktopContainer.propTypes = {
 }
 
 class MobileContainer extends Component {
-  state = {}
+  state = {};
 
-  handleSidebarHide = () => this.setState({ sidebarOpened: false })
+  handleSidebarHide = () => this.setState({ sidebarOpened: false });
 
-  handleToggle = () => this.setState({ sidebarOpened: true })
+  handleToggle = () => this.setState({ sidebarOpened: true });
+  handleItemClick = (e, { name }) => navigate(name);
 
   render() {
-    const { children } = this.props
-    const { sidebarOpened } = this.state
+    const { children } = this.props;
+    const { sidebarOpened } = this.state;
 
     return (
       <Responsive
@@ -102,10 +103,12 @@ class MobileContainer extends Component {
           vertical
           visible={sidebarOpened}
         >
-          <Menu.Item as="a" active>
+          <Menu.Item as="a" name="/" onClick={this.handleItemClick} active>
             Femmico
           </Menu.Item>
-          <Menu.Item as="b">Products</Menu.Item>
+          <Menu.Item as="b" name="/products" onClick={this.handleItemClick}>
+            Products
+          </Menu.Item>
           <Menu.Item
             position="right"
             className="snipcart-summary snipcart-checkout"
