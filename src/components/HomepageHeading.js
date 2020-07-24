@@ -15,6 +15,7 @@ const HomepageHeading = ({ mobile }) => (
       as='h1'
       content='Feminine Power'
       style={{
+        color: '#fff',
         fontSize: mobile ? '2em' : '4em',
         fontWeight: 'normal',
         marginBottom: 0,
@@ -25,6 +26,7 @@ const HomepageHeading = ({ mobile }) => (
       as='h2'
       content='Choosing the best for us'
       style={{
+        color: '#fff',
         fontSize: mobile ? '1.5em' : '1.7em',
         fontWeight: 'normal',
         marginTop: mobile ? '0.5em' : '1.5em',
