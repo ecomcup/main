@@ -75,9 +75,9 @@ export default () => {
                   <Card
                     fluid
                     header="About the brand"
-                    extra={<Link to="/cup-brand">Learn More</Link>}
+                    extra="Learn More"
                     style={{
-                      color: 'white',
+                      color: "white",
                       height: "200px",
                       backgroundSize: "cover",
                       backgroundImage: "url(/images/about-the-brand.webp)",
@@ -90,9 +90,9 @@ export default () => {
                   <Card
                     fluid
                     header="Cup info"
-                    extra={<Link to="/cup-info">Learn More</Link>}
+                    extra="Learn More"
                     style={{
-                      color: 'white',
+                      color: "white",
                       height: "200px",
                       backgroundSize: "cover",
                       backgroundImage: "url(/images/cup-info.webp)",
@@ -105,9 +105,9 @@ export default () => {
                   <Card
                     fluid
                     header="User guide"
-                    extra={<Link to="/cup-guide">Learn More</Link>}
+                    extra="Learn More"
                     style={{
-                      color: 'white',
+                      color: "white",
                       height: "200px",
                       backgroundSize: "cover",
                       backgroundImage: "url(/images/user-guide.webp)",

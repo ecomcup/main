@@ -34,6 +34,7 @@ module.exports = {
       options: {
         apiKey: process.env.SNIPCART_API_KEY,
         autopop: true,
+        language: null,
       },
     },
     {

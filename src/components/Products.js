@@ -39,7 +39,7 @@ export default function Products() {
             <h1>All products</h1>
             <Card.Group itemsPerRow={isMobile ? 1 : 6}>
               {data.products.edges.map(({ node: product }) => (
-                <Product product={product} />
+                <Product product={product} key={product.id} />
               ))}
             </Card.Group>
           </Container>

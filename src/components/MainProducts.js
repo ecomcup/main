@@ -43,7 +43,7 @@ export default function MainProducts() {
           <Container>
             <Card.Group itemsPerRow={isMobile ? 1 : 6}>
               {data.products.edges.map(({ node: product }) => (
-                <Product product={product} />
+                <Product product={product} key={product.id} />
               ))}
             </Card.Group>
           </Container>

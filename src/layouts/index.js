@@ -57,7 +57,7 @@ class DesktopContainer extends Component {
               </Menu.Item>
               <Menu.Item
                 position="right"
-                inverted
+                inverted="true"
                 className="snipcart-summary snipcart-checkout"
               >
                 <Icon name="shopping cart" />
