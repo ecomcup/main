@@ -69,36 +69,51 @@ export default () => {
           </Segment>
 
           <Segment vertical>
-            <Grid container stackable relaxed columns={3}>
+            <Grid container stackable relaxed centered columns={3}>
               <Grid.Column>
-                <Card
-                  header="About the brand"
-                  extra={<Link to="/cup-brand">Learn More</Link>}
-                  style={{
-                    height: "350px",
-                    backgroundImage: "url(https://via.placeholder.com/300x350)",
-                  }}
-                />
+                <Link to="/cup-brand">
+                  <Card
+                    fluid
+                    header="About the brand"
+                    extra={<Link to="/cup-brand">Learn More</Link>}
+                    style={{
+                      color: 'white',
+                      height: "200px",
+                      backgroundSize: "cover",
+                      backgroundImage: "url(/images/about-the-brand.webp)",
+                    }}
+                  />
+                </Link>
               </Grid.Column>
               <Grid.Column>
-                <Card
-                  header="Cup info"
-                  extra={<Link to="/cup-info">Learn More</Link>}
-                  style={{
-                    height: "350px",
-                    backgroundImage: "url(https://via.placeholder.com/300x350)",
-                  }}
-                />
+                <Link to="/cup-info">
+                  <Card
+                    fluid
+                    header="Cup info"
+                    extra={<Link to="/cup-info">Learn More</Link>}
+                    style={{
+                      color: 'white',
+                      height: "200px",
+                      backgroundSize: "cover",
+                      backgroundImage: "url(/images/cup-info.webp)",
+                    }}
+                  />
+                </Link>
               </Grid.Column>
               <Grid.Column>
-                <Card
-                  header="User guide"
-                  extra={<Link to="/cup-guide">Learn More</Link>}
-                  style={{
-                    height: "350px",
-                    backgroundImage: "url(https://via.placeholder.com/300x350)",
-                  }}
-                />
+                <Link to="/cup-guide">
+                  <Card
+                    fluid
+                    header="User guide"
+                    extra={<Link to="/cup-guide">Learn More</Link>}
+                    style={{
+                      color: 'white',
+                      height: "200px",
+                      backgroundSize: "cover",
+                      backgroundImage: "url(/images/user-guide.webp)",
+                    }}
+                  />
+                </Link>
               </Grid.Column>
             </Grid>
           </Segment>
