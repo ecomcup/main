@@ -1,9 +1,18 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { Container, Header, Image, Divider } from "semantic-ui-react";
+import { Container, Header, Image, List } from "semantic-ui-react";
 import Layout from "../layouts/index";
 
 export default () => {
+  const badges = [
+    '/images/brand-badges/dff.png',
+    '/images/brand-badges/fda.png',
+    '/images/brand-badges/hr-best-personal-care.png',
+    '/images/brand-badges/key-flag.png',
+    '/images/brand-badges/mumsnet-rated.png',
+    '/images/brand-badges/trans.png',
+    '/images/brand-badges/vegan.png',
+  ];
   return (
     <StaticQuery
       query={graphql`
@@ -41,14 +50,16 @@ export default () => {
               </span>
             </p>
 
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              How to use
-            </Header>
-            <Image src="/images/cup-size.webp" />
-            <Divider hidden />
-            <Image src="/images/cup-model.jpg" />
-            <Divider hidden />
-            <Image src="/images/instructions.webp" />
+            <List horizontal>
+              {badges.map((badge) => (
+                <List.Item>
+                  <Image
+                    size="tiny"
+                    src={badge}
+                  />
+                </List.Item>
+              ))}
+            </List>
           </Container>
         </Layout>
       )}
