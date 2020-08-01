@@ -4,6 +4,7 @@ import { navigate } from '@reach/router'
 import {
   Container,
   Icon,
+  Image,
   Menu,
   Responsive,
   Sidebar,
@@ -49,10 +50,10 @@ class DesktopContainer extends Component {
             size="large"
           >
             <Container>
-              <Menu.Item as="a" name="/" onClick={this.handleItemClick} active>
-                Femmico
+              <Menu.Item as="a" name="/" onClick={this.handleItemClick}>
+                <Image src="/images/logo.png" size="small" />
               </Menu.Item>
-              <Menu.Item as="b" name="/products" onClick={this.handleItemClick}>
+              <Menu.Item as="a" name="/products" onClick={this.handleItemClick}>
                 Products
               </Menu.Item>
               <Menu.Item
