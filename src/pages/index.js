@@ -5,7 +5,7 @@ import {
   Grid,
   Header,
   Segment,
-  Icon,
+  Image,
 } from "semantic-ui-react";
 import Layout from "../layouts/index";
 import MainProducts from "@components/MainProducts";
@@ -21,106 +21,111 @@ export default () => {
               siteName
             }
           }
+          allFile(
+            filter: {
+              extension: { regex: "/(jpg)|(jpeg)|(png)/" }
+              relativeDirectory: { eq: "images/navigation" }
+            }
+          ) {
+            edges {
+              node {
+                base
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+          features: allFile(
+            filter: {
+              extension: { regex: "/(jpg)|(jpeg)|(png)/" }
+              relativeDirectory: { eq: "images/features" }
+            }
+          ) {
+            edges {
+              node {
+                base
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
         }
       `}
-      render={(data) => (
-        <Layout site={data.site}>
-          <BrandHeader />
+      render={(data) => {
+        const navigations = [
+          {
+            header: "About the brand",
+            link: "/cup-brand",
+            image: "about-the-brand.jpg",
+          },
+          { header: "User guide", link: "/cup-guide", image: "user-guide.jpg" },
+          { header: "More info", link: "/cup-info", image: "cup-info.png" },
+        ];
+        const features = [
+          { header: "Easy to use", image: "easy-to-use.png" },
+          { header: "Eco Friendly", image: "eco-friendly.png" },
+          { header: "Up to 12 hours", image: "12-hours.png" },
+          { header: "Medical Grade Silicone", image: "medical-grade.png" },
+          { header: "No chemicals, BPA or Latex", image: "bpa-free.png" },
+          { header: "Made in Finland", image: "finland.png" },
+        ];
+        return (
+          <Layout site={data.site}>
+            <BrandHeader />
 
-          <Segment style={{ padding: "4em 0em" }} vertical>
-            <Grid container stackable columns={4}>
-              <Grid.Column>
-                <Header as="h1" icon>
-                  <Icon name="settings" />
-                  Easy to use
-                  <Header.Subheader>
-                    Manage your account settings and set e-mail preferences.
-                  </Header.Subheader>
-                </Header>
-              </Grid.Column>
-              <Grid.Column>
-                <Header as="h1" icon>
-                  <Icon name="settings" />
-                  No chemicals, BPA or latex
-                  <Header.Subheader>
-                    Manage your account settings and set e-mail preferences.
-                  </Header.Subheader>
-                </Header>
-              </Grid.Column>
-              <Grid.Column>
-                <Header as="h1" icon>
-                  <Icon name="settings" />
-                  Made of medical grade silicone
-                  <Header.Subheader>
-                    Manage your account settings and set e-mail preferences.
-                  </Header.Subheader>
-                </Header>
-              </Grid.Column>
-              <Grid.Column>
-                <Header as="h1" icon>
-                  <Icon name="settings" />
-                  Use up to 12 hours & empty 2-4 times/day
-                  <Header.Subheader>
-                    Manage your account settings and set e-mail preferences.
-                  </Header.Subheader>
-                </Header>
-              </Grid.Column>
-            </Grid>
-          </Segment>
+            <Segment style={{ padding: "4em 0em" }} vertical>
+              <Grid container stackable columns={3}>
+                {features.map((feature) => {
+                  const file = data.features.edges.find(
+                    (image) => image.node.base === feature.image
+                  );
+                  return (
+                    <Grid.Column key={feature.image} textAlign="center">
+                      <Image src={file.node.childImageSharp.fluid.src} centered />
+                      <Header as="h3">{feature.header}</Header>
+                    </Grid.Column>
+                  );
+                })}
+              </Grid>
+            </Segment>
 
-          <Segment vertical>
-            <Grid container stackable relaxed centered columns={3}>
-              <Grid.Column>
-                <Link to="/cup-brand">
-                  <Card
-                    fluid
-                    header="About the brand"
-                    extra="Learn More"
-                    style={{
-                      color: "white",
-                      height: "200px",
-                      backgroundSize: "cover",
-                      backgroundImage: "url(/images/about-the-brand.webp)",
-                    }}
-                  />
-                </Link>
-              </Grid.Column>
-              <Grid.Column>
-                <Link to="/cup-info">
-                  <Card
-                    fluid
-                    header="Cup info"
-                    extra="Learn More"
-                    style={{
-                      color: "white",
-                      height: "200px",
-                      backgroundSize: "cover",
-                      backgroundImage: "url(/images/cup-info.webp)",
-                    }}
-                  />
-                </Link>
-              </Grid.Column>
-              <Grid.Column>
-                <Link to="/cup-guide">
-                  <Card
-                    fluid
-                    header="User guide"
-                    extra="Learn More"
-                    style={{
-                      color: "white",
-                      height: "200px",
-                      backgroundSize: "cover",
-                      backgroundImage: "url(/images/user-guide.webp)",
-                    }}
-                  />
-                </Link>
-              </Grid.Column>
-            </Grid>
-          </Segment>
+            <Segment vertical>
+              <Grid container stackable relaxed centered columns={3}>
+                {navigations.map((navigation) => {
+                  const file = data.allFile.edges.find(
+                    (image) => image.node.base === navigation.image
+                  );
+                  return (
+                    <Grid.Column key={navigation.link}>
+                      <Link to={navigation.link}>
+                        <Card
+                          fluid
+                          header={navigation.header}
+                          extra="Learn More"
+                          style={{
+                            color: "white",
+                            height: "300px",
+                            backgroundSize: "cover",
+                            backgroundImage: `url(${file.node.childImageSharp.fluid.src})`,
+                          }}
+                        />
+                      </Link>
+                    </Grid.Column>
+                  );
+                })}
+              </Grid>
+            </Segment>
 
-          <MainProducts />
-        </Layout>
-      )}
+            <MainProducts />
+          </Layout>
+        );
+      }}
     />
   );
 };

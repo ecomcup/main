@@ -18,7 +18,7 @@ export default function MainProducts() {
           products: allDatoCmsProduct(
             limit: 6
             filter: {
-              collections: { elemMatch: { label: { eq: "Main Page" } } }
+              collections: { elemMatch: { label: { in: ["Home Page"] } } }
             }
           ) {
             edges {
@@ -38,17 +38,23 @@ export default function MainProducts() {
           }
         }
       `}
-      render={(data) => (
-        <Segment vertical>
-          <Container>
-            <Card.Group itemsPerRow={isMobile ? 1 : 6}>
-              {data.products.edges.map(({ node: product }) => (
-                <Product product={product} key={product.id} />
-              ))}
-            </Card.Group>
-          </Container>
-        </Segment>
-      )}
+      render={(data) => {
+        if (!data.products.edges.length) return null;
+        
+        return (
+          <Segment vertical>
+            <Container>
+              <Card.Group
+                itemsPerRow={isMobile ? 1 : data.products.edges.length}
+              >
+                {data.products.edges.map(({ node: product }) => (
+                  <Product product={product} key={product.id} />
+                ))}
+              </Card.Group>
+            </Container>
+          </Segment>
+        );
+      }}
     />
   );
 

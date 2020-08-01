@@ -21,7 +21,7 @@ export default () => {
             <Grid columns={2} divided stackable>
               <Grid.Row>
                 <Grid.Column computer={5}>
-                  <Image src="/images/contact-us.webp" size="medium" centered />
+                  <Image src="/images/contact-us.jpg" size="medium" centered />
                 </Grid.Column>
                 <Grid.Column>
                   <Container text style={{ paddingLeft: "1em" }}>

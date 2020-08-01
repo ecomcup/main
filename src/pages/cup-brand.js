@@ -52,7 +52,7 @@ export default () => {
 
             <List horizontal>
               {badges.map((badge) => (
-                <List.Item>
+                <List.Item key={badge}>
                   <Image
                     size="tiny"
                     src={badge}

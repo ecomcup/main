@@ -30,12 +30,11 @@ export default function Footer () {
               </List>
             </Grid.Column>
             <Grid.Column width={3}>
-              <Header inverted as="h4" content="Services" />
+              <Header inverted as="h4" content="Misc." />
               <List link inverted>
-                <List.Item>Banana Pre-Order</List.Item>
-                <List.Item>DNA FAQ</List.Item>
-                <List.Item>How To Access</List.Item>
-                <List.Item>Favorite X-Men</List.Item>
+                <List.Item>
+                  <Link to="/credit-links">Credit Links</Link>
+                </List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
