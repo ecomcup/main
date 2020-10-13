@@ -4,8 +4,6 @@ import {
   Button,
   Card,
 } from "semantic-ui-react";
-import { navigate } from "@reach/router";
-import { Link } from "gatsby";
 
 export default function Product({ product }) {
   return (
@@ -23,10 +21,7 @@ export default function Product({ product }) {
         <Card.Description>MYR {product.price}</Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <a
-          href={product.shopeeUrl}
-          target="_blank"
-        >
+        <a href={product.shopeeUrl} target="_blank" rel="noreferrer">
           <Button negative>Buy at Shopee</Button>
         </a>
         {/* <div className="ui two buttons">
