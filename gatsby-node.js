@@ -21,19 +21,19 @@ const path = require("path")
 //   }
 // };
 // console.log("products".match(/^\/product/));
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions;
+// exports.onCreatePage = async ({ page, actions }) => {
+//   const { createPage } = actions;
 
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  if (page.path.match(/^\/product\//)) {
-    page.matchPath = "/product/*";
-    console.log(page, "pagepagepagepage", actions);
-    page.context.name = "Clear Cup + Cleanser + Wipes";
-    // Update the page.
-    createPage(page);
-  }
-};
+//   // page.matchPath is a special key that's used for matching pages
+//   // only on the client.
+//   if (page.path.match(/^\/product\//)) {
+//     page.matchPath = "/product/*";
+//     console.log(page, "pagepagepagepage", actions);
+//     page.context.name = "Clear Cup + Cleanser + Wipes";
+//     // Update the page.
+//     createPage(page);
+//   }
+// };
 // console.log("products".match(/^\/product/));
 /**
  * Custom Webpack config
