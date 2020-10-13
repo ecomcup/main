@@ -24,10 +24,10 @@ export default function Product({ product }) {
       </Card.Content>
       <Card.Content extra>
         <a
-          href="https://shopee.sg/Levi's-721-High-Rise-Skinny-Jeans-18882-0329-i.106712159.7518897383"
+          href={product.shopeeUrl}
           target="_blank"
         >
-          <Button negative>Shopee</Button>
+          <Button negative>Buy at Shopee</Button>
         </a>
         {/* <div className="ui two buttons">
           <Button
