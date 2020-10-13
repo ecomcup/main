@@ -56,14 +56,14 @@ class DesktopContainer extends Component {
               <Menu.Item as="a" name="/products" onClick={this.handleItemClick}>
                 Products
               </Menu.Item>
-              <Menu.Item
+              {/* <Menu.Item
                 position="right"
                 inverted="true"
                 className="snipcart-summary snipcart-checkout"
               >
                 <Icon name="shopping cart" />
                 <span className="snipcart-total-items"></span>
-              </Menu.Item>
+              </Menu.Item> */}
             </Container>
           </Menu>
         </Visibility>
@@ -110,14 +110,14 @@ class MobileContainer extends Component {
           <Menu.Item as="b" name="/products" onClick={this.handleItemClick}>
             Products
           </Menu.Item>
-          <Menu.Item
+          {/* <Menu.Item
             position="right"
             className="snipcart-summary snipcart-checkout"
           >
             <Icon name="shopping cart" />
             My Shopping Cart
             <span className="snipcart-total-items"></span>
-          </Menu.Item>
+          </Menu.Item> */}
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>

@@ -17,12 +17,8 @@ export default function Footer () {
             <Grid.Column width={3}>
               <Header inverted as="h4" content="About" />
               <List link inverted>
-                <List.Item>Sitemap</List.Item>
                 <List.Item>
                   <Link to="/contact-us">Contact Us</Link>
-                </List.Item>
-                <List.Item>
-                  <Link to="/shipping">Shipping</Link>
                 </List.Item>
                 <List.Item>
                   <Link to="/privacy-policy">Privacy Policy</Link>
@@ -36,15 +32,6 @@ export default function Footer () {
                   <Link to="/credit-links">Credit Links</Link>
                 </List.Item>
               </List>
-            </Grid.Column>
-            <Grid.Column width={7}>
-              <Header as="h4" inverted>
-                Footer Header
-              </Header>
-              <p>
-                Extra space for a call to action inside the footer that could
-                help re-engage users.
-              </p>
             </Grid.Column>
           </Grid.Row>
         </Grid>

@@ -4,8 +4,6 @@ import {
   Container,
   Segment,
   Card,
-  Image,
-  Message,
 } from "semantic-ui-react";
 import { useMediaQuery } from "react-responsive";
 import Product from "@components/Product";
@@ -116,32 +114,22 @@ export default function Products() {
             <Container>
               <h1>All products</h1>
 
-              <Message info>
-                <Message.Header>New Launch Promotion!</Message.Header>
-                <Image src="/images/promotion.png" size="large" />
-                <ul>
-                  <li>15% off for all products</li>
-                  <li>Free cupwipe (4 sheets) for every purchase above MYR 150</li>
-                </ul>
-              </Message>
-
-
               <h3>Starter Kits</h3>
-              <Card.Group itemsPerRow={isMobile ? 1 : 6}>
+              <Card.Group itemsPerRow={isMobile ? 1 : 4}>
                 {data.starterKits.edges.map(({ node: product }) => (
                   <Product product={product} key={product.id} />
                 ))}
               </Card.Group>
 
               <h3>Menstrual Cups</h3>
-              <Card.Group itemsPerRow={isMobile ? 1 : 6}>
+              <Card.Group itemsPerRow={isMobile ? 1 : 4}>
                 {data.menstrualCups.edges.map(({ node: product }) => (
                   <Product product={product} key={product.id} />
                 ))}
               </Card.Group>
 
               <h3>Cleansing Products</h3>
-              <Card.Group itemsPerRow={isMobile ? 1 : 6}>
+              <Card.Group itemsPerRow={isMobile ? 1 : 4}>
                 {data.cleansingProducts.edges.map(({ node: product }) => (
                   <Product product={product} key={product.id} />
                 ))}
@@ -150,7 +138,7 @@ export default function Products() {
               {!!data.others.edges.length && (
                 <>
                   <h3>Others</h3>
-                  <Card.Group itemsPerRow={isMobile ? 1 : 6}>
+                  <Card.Group itemsPerRow={isMobile ? 1 : 4}>
                     {data.others.edges.map(({ node: product }) => (
                       <Product product={product} key={product.id} />
                     ))}
