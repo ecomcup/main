@@ -10,6 +10,7 @@ import {
   Sidebar,
   Visibility,
 } from 'semantic-ui-react'
+import { isMobileOnly } from "react-device-detect";
 import Footer from '@components/Footer'
 
 // Heads up!
@@ -148,12 +149,13 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const ResponsiveContainer = ({ children, ...props }) => (
-  <div>
-    <DesktopContainer {...props}>{children}</DesktopContainer>
-    <MobileContainer {...props}>{children}</MobileContainer>
-  </div>
-)
+const ResponsiveContainer = ({ children, ...props }) => {
+  if (isMobileOnly) {
+    return <MobileContainer {...props}>{children}</MobileContainer>;
+  }
+
+  return <DesktopContainer {...props}>{children}</DesktopContainer>;
+}
 
 ResponsiveContainer.propTypes = {
   children: PropTypes.node,
