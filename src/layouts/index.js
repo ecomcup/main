@@ -105,7 +105,7 @@ class MobileContainer extends Component {
           visible={sidebarOpened}
         >
           <Menu.Item as="a" name="/" onClick={this.handleItemClick} active>
-            Femmico
+            <Image src="/images/logo.png" size="small" />
           </Menu.Item>
           <Menu.Item as="b" name="/products" onClick={this.handleItemClick}>
             Products
@@ -126,14 +126,14 @@ class MobileContainer extends Component {
               <Menu.Item onClick={this.handleToggle}>
                 <Icon name="sidebar" />
               </Menu.Item>
-              <Menu.Item
+              {/* <Menu.Item
                 position="right"
                 className="snipcart-summary snipcart-checkout"
               >
                 <Icon name="shopping cart" />
 
                 <span className="snipcart-total-items"></span>
-              </Menu.Item>
+              </Menu.Item> */}
             </Menu>
           </Container>
 
