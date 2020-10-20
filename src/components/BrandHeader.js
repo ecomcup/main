@@ -7,7 +7,7 @@ import {
   Sidebar,
 } from 'semantic-ui-react'
 import {
-  isBrowser,
+  isMobileOnly,
 } from "react-device-detect";
 import HomepageHeading from '@components/HomepageHeading'
 
@@ -105,11 +105,11 @@ MobileContainer.propTypes = {
 }
 
 const BrandHeader = ({ children, ...props }) => {
-  if (isBrowser) {
-    return <DesktopContainer {...props}>{children}</DesktopContainer>
+  if (isMobileOnly) {
+    return <MobileContainer {...props}>{children}</MobileContainer>;
   }
-
-  return <MobileContainer {...props}>{children}</MobileContainer>;
+  
+  return <DesktopContainer {...props}>{children}</DesktopContainer>
 };
 
 export default BrandHeader
