@@ -6,6 +6,9 @@ import {
   Segment,
   Sidebar,
 } from 'semantic-ui-react'
+import {
+  isBrowser,
+} from "react-device-detect";
 import HomepageHeading from '@components/HomepageHeading'
 
 // Heads up!
@@ -101,11 +104,12 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const BrandHeader = ({ children, ...props }) => (
-  <div>
-    <DesktopContainer {...props}>{children}</DesktopContainer>
-    <MobileContainer {...props}>{children}</MobileContainer>
-  </div>
-);
+const BrandHeader = ({ children, ...props }) => {
+  if (isBrowser) {
+    return <DesktopContainer {...props}>{children}</DesktopContainer>
+  }
+
+  return <MobileContainer {...props}>{children}</MobileContainer>;
+};
 
 export default BrandHeader
