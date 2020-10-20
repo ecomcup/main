@@ -32,6 +32,8 @@ export default function Products() {
                 name
                 price
                 originalPrice
+                shopeeUrl
+                lazadaUrl
                 image {
                   url
                   sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
@@ -53,6 +55,8 @@ export default function Products() {
                 name
                 price
                 originalPrice
+                shopeeUrl
+                lazadaUrl
                 image {
                   url
                   sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
@@ -74,6 +78,8 @@ export default function Products() {
                 name
                 price
                 originalPrice
+                shopeeUrl
+                lazadaUrl
                 image {
                   url
                   sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
@@ -97,6 +103,8 @@ export default function Products() {
                 name
                 price
                 originalPrice
+                shopeeUrl
+                lazadaUrl
                 image {
                   url
                   sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {

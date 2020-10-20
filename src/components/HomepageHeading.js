@@ -13,7 +13,7 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       as="h1"
-      content="Feminine Power "
+      content="Feminine Power"
       style={{
         color: "#fff",
         fontSize: mobile ? "2em" : "4em",

@@ -21,9 +21,20 @@ export default function Product({ product }) {
         <Card.Description>MYR {product.price}</Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <a href={product.shopeeUrl} target="_blank" rel="noreferrer">
-          <Button negative>Buy at Shopee</Button>
-        </a>
+        {product.shopeeUrl && (
+          <a href={product.shopeeUrl} target="_blank" rel="noreferrer">
+            <Button negative style={{ backgroundColor: "#fe5722" }}>
+              Buy at Shopee
+            </Button>
+          </a>
+        )}
+        {product.lazadaUrl && (
+          <a href={product.lazadaUrl} target="_blank" rel="noreferrer">
+            <Button>
+              Buy at Shopee
+            </Button>
+          </a>
+        )}
         {/* <div className="ui two buttons">
           <Button
             basic

@@ -1,9 +1,11 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import {
   Container,
-  Segment,
   Card,
+  Divider,
+  Header,
+  Segment,
 } from "semantic-ui-react";
 import { useMediaQuery } from "react-responsive";
 import Product from "@components/Product";
@@ -27,6 +29,8 @@ export default function MainProducts() {
                 name
                 price
                 originalPrice
+                shopeeUrl
+                lazadaUrl
                 image {
                   url
                   sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
@@ -42,8 +46,11 @@ export default function MainProducts() {
         if (!data.products.edges.length) return null;
         
         return (
-          <Segment vertical>
+          <Segment vertical style={{ padding: "4em 0em" }}>
             <Container>
+              <Header as="h3" style={{ fontSize: "2em" }}>
+                Best Seller
+              </Header>
               <Card.Group
                 itemsPerRow={isMobile ? 1 : data.products.edges.length}
               >
@@ -51,6 +58,14 @@ export default function MainProducts() {
                   <Product product={product} key={product.id} />
                 ))}
               </Card.Group>
+              <Divider
+                horizontal
+                as="h4"
+                className="header"
+                style={{ marginTop: "3em", textTransform: "uppercase" }}
+              >
+                <Link to="/products">More</Link>
+              </Divider>
             </Container>
           </Segment>
         );

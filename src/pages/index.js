@@ -2,6 +2,7 @@ import React from "react";
 import { StaticQuery, Link, graphql } from "gatsby";
 import {
   Card,
+  Container,
   Grid,
   Header,
   Segment,
@@ -60,12 +61,12 @@ export default () => {
       render={(data) => {
         const navigations = [
           {
-            header: "About the brand",
+            header: "About Lunette & Femmico",
             link: "/cup-brand",
             image: "about-the-brand.jpg",
           },
-          { header: "User guide", link: "/cup-guide", image: "user-guide.jpg" },
-          { header: "More info", link: "/cup-info", image: "cup-info.png" },
+          { header: "User Guide", link: "/cup-guide", image: "user-guide.jpg" },
+          { header: "More Info", link: "/cup-info", image: "cup-info.png" },
         ];
         const features = [
           { header: "Easy to use", image: "easy-to-use.png" },
@@ -79,7 +80,10 @@ export default () => {
           <Layout site={data.site}>
             <BrandHeader />
 
-            <Segment style={{ padding: "4em 0em" }} vertical>
+            <Segment
+              style={{ padding: "4em 0em", backgroundColor: "#F9F9F9" }}
+              vertical
+            >
               <Grid container stackable columns={3}>
                 {features.map((feature) => {
                   const file = data.features.edges.find(
@@ -87,7 +91,10 @@ export default () => {
                   );
                   return (
                     <Grid.Column key={feature.image} textAlign="center">
-                      <Image src={file.node.childImageSharp.fluid.src} centered />
+                      <Image
+                        src={file.node.childImageSharp.fluid.src}
+                        centered
+                      />
                       <Header as="h3">{feature.header}</Header>
                     </Grid.Column>
                   );
@@ -95,7 +102,26 @@ export default () => {
               </Grid>
             </Segment>
 
-            <Segment vertical>
+            <Segment vertical style={{ padding: "4em 0em" }}>
+              <Container text>
+                <Header as="h3" style={{ fontSize: "2em" }}>
+                  What is Menstrual Cup?
+                </Header>
+                <p style={{ fontSize: "1.33em" }}>
+                  Made of Silicone or Latex Rubber. The Small, Flexible Cup is a
+                  type of Reusable Feminine Hygiene Product. Insert it like
+                  tampon. Instead of absorbing period fluid like a tampon or
+                  pad, Menstrual Cup collects it. Depending on your flow, a Cup
+                  can use up to 12 hours & can hold more blood than other
+                  methods. A Eco-friendly product for menstrual period.
+                </p>
+              </Container>
+            </Segment>
+
+            <Segment
+              vertical
+              style={{ padding: "4em 0em", backgroundColor: "#F9F9F9" }}
+            >
               <Grid container stackable relaxed centered columns={3}>
                 {navigations.map((navigation) => {
                   const file = data.allFile.edges.find(
@@ -120,6 +146,20 @@ export default () => {
                   );
                 })}
               </Grid>
+            </Segment>
+
+            <Segment vertical style={{ padding: "4em 0em" }}>
+              <Container text>
+                <Header as="h3" style={{ fontSize: "2em" }}>
+                  Why Lunette Menstrual Cup?
+                </Header>
+                <p style={{ fontSize: "1.33em" }}>
+                  Lunette menstrual cup registered with FDA and TGA. Winner of
+                  the vigorous Danish chemical safety test. Eco-friendly from
+                  production to 100% biodegrable packaging. Product made in
+                  Finland.
+                </p>
+              </Container>
             </Segment>
 
             <MainProducts />

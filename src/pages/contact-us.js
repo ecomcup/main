@@ -30,6 +30,24 @@ export default () => {
 
                     <List size="huge">
                       <List.Item
+                        icon="shop"
+                        content={
+                          <a href="https://shopee.com.my/femmico">
+                            Shopee Femmico
+                          </a>
+                        }
+                      />
+
+                      <List.Item
+                        icon="shop"
+                        content={
+                          <a href="https://www.lazada.com.my/shop/femmico">
+                            Lazada Femmico
+                          </a>
+                        }
+                      />
+
+                      <List.Item
                         icon="mail"
                         content={
                           <a href="mailto:support@femmico.com">
@@ -37,25 +55,27 @@ export default () => {
                           </a>
                         }
                       />
-                    
+
                       <List.Item
                         icon="whatsapp"
                         content={
-                          <a href="https://wa.me/601118576987">+6011-18576987</a>
+                          <a href="https://wa.me/601118576987">
+                            +6011-18576987
+                          </a>
                         }
                       />
-                    
-                      <List.Item
+
+                      {/* <List.Item
                         icon="instagram"
                         content={
                           <a href="https://instagram.com/femmico">femmico</a>
                         }
-                      />
-                    
+                      /> */}
+
                       <List.Item
                         icon="facebook"
                         content={
-                          <a href="https://facebook.com/femmico">femmico</a>
+                          <a href="https://facebook.com/femmico">Femmico</a>
                         }
                       />
                     </List>
