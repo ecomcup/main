@@ -7,6 +7,7 @@ import {
   Header,
   Segment,
   Image,
+  Button,
 } from "semantic-ui-react";
 import Layout from "../layouts/index";
 import MainProducts from "@components/MainProducts";
@@ -80,6 +81,20 @@ export default () => {
           <Layout site={data.site}>
             <BrandHeader />
 
+            <Segment vertical style={{ padding: "4em 0em" }}>
+              <Container text>
+                <Header as="h3" style={{ fontSize: "2em" }}>
+                  Why Lunette Menstrual Cup?
+                </Header>
+                <p style={{ fontSize: "1.33em" }}>
+                  Lunette menstrual cup registered with FDA and TGA. Winner of
+                  the vigorous Danish chemical safety test. Eco-friendly from
+                  production to 100% biodegrable packaging. Product made in
+                  Finland.
+                </p>
+              </Container>
+            </Segment>
+
             <Segment
               style={{ padding: "4em 0em", backgroundColor: "#F9F9F9" }}
               vertical
@@ -133,7 +148,7 @@ export default () => {
                         <Card
                           fluid
                           header={navigation.header}
-                          extra="Learn More"
+                          extra={<Button>Learn More</Button>}
                           style={{
                             color: "white",
                             height: "300px",
@@ -146,20 +161,6 @@ export default () => {
                   );
                 })}
               </Grid>
-            </Segment>
-
-            <Segment vertical style={{ padding: "4em 0em" }}>
-              <Container text>
-                <Header as="h3" style={{ fontSize: "2em" }}>
-                  Why Lunette Menstrual Cup?
-                </Header>
-                <p style={{ fontSize: "1.33em" }}>
-                  Lunette menstrual cup registered with FDA and TGA. Winner of
-                  the vigorous Danish chemical safety test. Eco-friendly from
-                  production to 100% biodegrable packaging. Product made in
-                  Finland.
-                </p>
-              </Container>
             </Segment>
 
             <MainProducts />

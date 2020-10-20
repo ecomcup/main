@@ -83,8 +83,8 @@ class MobileContainer extends Component {
             padding: "1em 0em",
             backgroundImage: `url("/images/homepage-heading.jpg")`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: "contain",
-            backgroundPosition: "center right",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             backgroundColor: "#C4E5F6",
           }}
           vertical
