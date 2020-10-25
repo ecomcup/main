@@ -54,7 +54,7 @@ export default () => {
                       <Grid.Column>
                         {title && <h3>{title}</h3>}
                         <Embed
-                          id={id}
+                          id={id.replace('.jpg', '')}
                           source="youtube"
                           placeholder={file.node.childImageSharp.fluid.src}
                         />
