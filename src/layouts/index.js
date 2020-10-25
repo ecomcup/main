@@ -144,9 +144,12 @@ class MobileContainer extends Component {
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
           <Container>
-            <Menu pointing secondary size="large">
-              <Menu.Item onClick={this.handleToggle}>
-                <Icon name="sidebar" />
+            <Menu pointing secondary size="small">
+              <Menu.Item>
+                <Icon name="sidebar" onClick={this.handleToggle} />
+              </Menu.Item>
+              <Menu.Item name="/" onClick={this.handleItemClick}>
+                <Image src="/images/logo.png" size="tiny" />
               </Menu.Item>
               {/* <Menu.Item
                 position="right"
