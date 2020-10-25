@@ -107,7 +107,7 @@ class MobileContainer extends Component {
           visible={sidebarOpened}
         >
           <Menu.Item as="a" name="/" onClick={this.handleItemClick} active>
-            <Image src="/images/logo.png" size="small" />
+            <Image src="/images/logo.png" size="tiny" />
           </Menu.Item>
           <Menu.Item as="a" name="/products" onClick={this.handleItemClick}>
             Products
