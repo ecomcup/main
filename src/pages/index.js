@@ -12,6 +12,7 @@ import {
 import Layout from "../layouts/index";
 import MainProducts from "@components/MainProducts";
 import BrandHeader from "@components/BrandHeader";
+import { navigations } from "../constants";
 
 export default () => {
   return (
@@ -60,15 +61,6 @@ export default () => {
         }
       `}
       render={(data) => {
-        const navigations = [
-          {
-            header: "About Lunette & Femmico",
-            link: "/cup-brand",
-            image: "about-the-brand.jpg",
-          },
-          { header: "User Guide", link: "/cup-guide", image: "user-guide.jpg" },
-          { header: "More Info", link: "/cup-info", image: "cup-info.png" },
-        ];
         const features = [
           { header: "Easy to use", image: "easy-to-use.png" },
           { header: "Eco Friendly", image: "eco-friendly.png" },

@@ -9,9 +9,10 @@ import {
   Responsive,
   Sidebar,
   Visibility,
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
 import { isMobileOnly } from "react-device-detect";
-import Footer from '@components/Footer'
+import Footer from '@components/Footer';
+import { navigations } from "../constants";
 
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
@@ -108,9 +109,29 @@ class MobileContainer extends Component {
           <Menu.Item as="a" name="/" onClick={this.handleItemClick} active>
             <Image src="/images/logo.png" size="small" />
           </Menu.Item>
-          <Menu.Item as="b" name="/products" onClick={this.handleItemClick}>
+          <Menu.Item as="a" name="/products" onClick={this.handleItemClick}>
             Products
           </Menu.Item>
+          <Menu.Item name="guide">
+            <Menu.Header>Guides</Menu.Header>
+
+            <Menu.Menu>
+              {navigations.map((nav) => (
+                <Menu.Item
+                  key={nav.link}
+                  as="a"
+                  name={nav.link}
+                  onClick={this.handleItemClick}
+                >
+                  {nav.header}
+                </Menu.Item>
+              ))}
+            </Menu.Menu>
+          </Menu.Item>
+          <Menu.Item as="a" name="/contact-us" onClick={this.handleItemClick}>
+            Contact Us
+          </Menu.Item>
+
           {/* <Menu.Item
             position="right"
             className="snipcart-summary snipcart-checkout"
