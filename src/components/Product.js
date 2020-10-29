@@ -23,15 +23,15 @@ export default function Product({ product }) {
       <Card.Content extra>
         {product.shopeeUrl && (
           <a href={product.shopeeUrl} target="_blank" rel="noreferrer">
-            <Button negative style={{ backgroundColor: "#fe5722" }}>
+            <Button id="buy-shopee" negative style={{ backgroundColor: "#fe5722" }}>
               Buy at Shopee
             </Button>
           </a>
         )}
         {product.lazadaUrl && (
           <a href={product.lazadaUrl} target="_blank" rel="noreferrer">
-            <Button>
-              Buy at Shopee
+            <Button id="buy-lazada">
+              Buy at Lazada
             </Button>
           </a>
         )}
